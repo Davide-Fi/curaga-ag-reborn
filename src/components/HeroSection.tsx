@@ -1,7 +1,32 @@
-const heroImage = "/lovable-uploads/05d099ea-23e4-4638-b786-16093f5b6026.png";
+import { useState, useEffect } from "react";
 import { ArrowRight, Code, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { removeBackground, loadImageFromUrl } from "@/utils/imageProcessing";
+
+const heroImage = "/lovable-uploads/05d099ea-23e4-4638-b786-16093f5b6026.png";
 const HeroSection = () => {
+  const [processedImageUrl, setProcessedImageUrl] = useState<string>(heroImage);
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  useEffect(() => {
+    const processImage = async () => {
+      try {
+        setIsProcessing(true);
+        const img = await loadImageFromUrl(heroImage);
+        const processedBlob = await removeBackground(img);
+        const processedUrl = URL.createObjectURL(processedBlob);
+        setProcessedImageUrl(processedUrl);
+      } catch (error) {
+        console.error('Failed to process image:', error);
+        // Fallback to original image
+        setProcessedImageUrl(heroImage);
+      } finally {
+        setIsProcessing(false);
+      }
+    };
+
+    processImage();
+  }, []);
   return <section className="relative bg-gradient-to-br from-background via-background to-secondary/20 overflow-hidden min-h-screen flex items-center">
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-20 right-20 w-72 h-72 bg-gradient-primary rounded-full blur-3xl opacity-20 animate-float"></div>
@@ -15,7 +40,7 @@ const HeroSection = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-primary rounded-3xl blur-3xl opacity-30 animate-float"></div>
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-curaga-purple/20 rounded-3xl blur-2xl"></div>
-              <img src={heroImage} alt="Curaga Web3 Innovation" className="relative w-full max-w-lg animate-scale-in" />
+              <img src={processedImageUrl} alt="Curaga Web3 Innovation" className="relative w-full max-w-md animate-scale-in" />
             </div>
           </div>
           

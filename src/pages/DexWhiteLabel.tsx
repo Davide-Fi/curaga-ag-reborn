@@ -308,7 +308,7 @@ const DexWhiteLabel = () => {
                 </Card>
                 
                 {index < integrationSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-6 -right-4 w-8 h-0.5 bg-gradient-primary"></div>
+                  <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 -right-4 w-8 h-0.5 bg-gradient-primary z-10"></div>
                 )}
               </div>
             ))}

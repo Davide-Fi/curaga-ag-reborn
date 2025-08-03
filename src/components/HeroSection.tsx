@@ -1,4 +1,4 @@
-import heroImage from "@/assets/hero-image-transparent.png";
+const heroImage = "/lovable-uploads/05d099ea-23e4-4638-b786-16093f5b6026.png";
 import { ArrowRight, Code, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 const HeroSection = () => {

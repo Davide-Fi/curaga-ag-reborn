@@ -1,56 +1,19 @@
-import { useState, useEffect } from 'react';
-import { config } from '@/config';
+import * as React from "react"
 
-export function useIsMobile(): boolean {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+const MOBILE_BREAKPOINT = 768
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < config.ui.mobileBreakpoint);
-    };
+export function useIsMobile() {
+  const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined)
 
-    // Initial check
-    checkMobile();
+  React.useEffect(() => {
+    const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`)
+    const onChange = () => {
+      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+    }
+    mql.addEventListener("change", onChange)
+    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+    return () => mql.removeEventListener("change", onChange)
+  }, [])
 
-    // Add event listener
-    window.addEventListener('resize', checkMobile);
-
-    // Cleanup
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  return isMobile;
-}
-
-export function useIsTablet(): boolean {
-  const [isTablet, setIsTablet] = useState<boolean>(false);
-
-  useEffect(() => {
-    const checkTablet = () => {
-      const width = window.innerWidth;
-      setIsTablet(width >= config.ui.mobileBreakpoint && width < config.ui.tabletBreakpoint);
-    };
-
-    checkTablet();
-    window.addEventListener('resize', checkTablet);
-    return () => window.removeEventListener('resize', checkTablet);
-  }, []);
-
-  return isTablet;
-}
-
-export function useIsDesktop(): boolean {
-  const [isDesktop, setIsDesktop] = useState<boolean>(false);
-
-  useEffect(() => {
-    const checkDesktop = () => {
-      setIsDesktop(window.innerWidth >= config.ui.desktopBreakpoint);
-    };
-
-    checkDesktop();
-    window.addEventListener('resize', checkDesktop);
-    return () => window.removeEventListener('resize', checkDesktop);
-  }, []);
-
-  return isDesktop;
+  return !!isMobile
 }

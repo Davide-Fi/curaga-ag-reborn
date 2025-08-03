@@ -15,7 +15,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <img src="/lovable-uploads/561794b8-8c4c-4f17-b4dd-857045eecab2.png" alt="Curaga" className="h-16" />
           
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="flex items-center space-x-4 md:space-x-8 text-sm md:text-base">
             <button 
               onClick={() => scrollToSection('about')}
               className="text-foreground hover:text-primary transition-colors duration-200"

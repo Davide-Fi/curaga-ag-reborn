@@ -10,23 +10,25 @@ const HeroSection = () => {
     }}></div>
       
       <div className="container mx-auto max-w-7xl px-8 py-20 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className="space-y-8 animate-fade-in">
-            
-            
+        <div className="flex flex-col items-center space-y-12">
+          <div className="flex justify-center">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-primary rounded-3xl blur-3xl opacity-30 animate-float"></div>
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-curaga-purple/20 rounded-3xl blur-2xl"></div>
+              <img src={heroImage} alt="Curaga Web3 Innovation" className="relative w-full max-w-lg animate-scale-in" />
+            </div>
+          </div>
+          
+          <div className="space-y-8 animate-fade-in text-center">
             <h1 className="text-6xl lg:text-7xl font-bold leading-tight">
-              
-              <br />
               <span className="text-foreground">Build the Future of</span>
               <br />
               <span className="text-foreground">Web3 Applications</span>
-              <br />
-              
             </h1>
             
-            <p className="text-xl text-muted-foreground leading-relaxed font-light max-w-2xl">Experienced R&D consultancy specializing in cutting-edge blockchain solutions, smart contract engineering, and decentralized applications that drive real innovation.</p>
+            <p className="text-xl text-muted-foreground leading-relaxed font-light max-w-2xl mx-auto">Experienced R&D consultancy specializing in cutting-edge blockchain solutions, smart contract engineering, and decentralized applications that drive real innovation.</p>
             
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               <Button size="lg" className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 rounded-2xl group">
                 Start Your Project
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
@@ -37,7 +39,7 @@ const HeroSection = () => {
               </Button>
             </div>
             
-            <div className="flex items-center gap-8 pt-8">
+            <div className="flex items-center gap-8 pt-8 justify-center">
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary">50+</div>
                 <div className="text-sm text-muted-foreground">Projects Delivered</div>
@@ -50,14 +52,6 @@ const HeroSection = () => {
                 <div className="text-3xl font-bold text-primary">24/7</div>
                 <div className="text-sm text-muted-foreground">Support</div>
               </div>
-            </div>
-          </div>
-          
-          <div className="lg:flex lg:justify-end">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-primary rounded-3xl blur-3xl opacity-30 animate-float"></div>
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-curaga-purple/20 rounded-3xl blur-2xl"></div>
-              <img src={heroImage} alt="Curaga Web3 Innovation" className="relative w-full max-w-lg animate-scale-in" />
             </div>
           </div>
         </div>

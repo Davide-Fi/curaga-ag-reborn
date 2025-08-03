@@ -52,6 +52,11 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				'curaga-purple': {
+					DEFAULT: 'hsl(var(--curaga-purple))',
+					light: 'hsl(var(--curaga-purple-light))',
+					dark: 'hsl(var(--curaga-purple-dark))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

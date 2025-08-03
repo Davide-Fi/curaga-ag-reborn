@@ -22,7 +22,7 @@ const HeroSection = () => {
             <img 
               src={heroImage} 
               alt="Curaga Hero" 
-              className="w-full max-w-md rounded-lg shadow-lg"
+              className="w-full max-w-md"
             />
           </div>
         </div>

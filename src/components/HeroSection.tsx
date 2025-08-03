@@ -15,19 +15,16 @@ const HeroSection = () => {
             
             
             <h1 className="text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="bg-gradient-primary bg-clip-text text-transparent">Curaga</span>
+              
               <br />
-              <span className="text-foreground">Shapes the</span>
+              <span className="text-foreground">Build the Future of</span>
               <br />
-              <span className="text-foreground">Future of</span>
+              <span className="text-foreground">Web3 Applications</span>
               <br />
-              <span className="bg-gradient-primary bg-clip-text text-transparent">Web3</span>
+              
             </h1>
             
-            <p className="text-xl text-muted-foreground leading-relaxed font-light max-w-2xl">
-              Elite R&D consultancy specializing in cutting-edge blockchain solutions, 
-              smart contract engineering, and decentralized applications that drive real innovation.
-            </p>
+            <p className="text-xl text-muted-foreground leading-relaxed font-light max-w-2xl">Experienced R&D consultancy specializing in cutting-edge blockchain solutions, smart contract engineering, and decentralized applications that drive real innovation.</p>
             
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button size="lg" className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 rounded-2xl group">

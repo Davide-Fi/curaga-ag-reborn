@@ -27,7 +27,7 @@ const PartnersSection = () => {
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 items-center">
           {partners.map((partner, index) => (
-            <div key={index} className="group flex justify-center items-center p-8 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:shadow-glow transition-all duration-300 hover:-translate-y-1">
+            <div key={index} className="group flex justify-center items-center p-8 rounded-2xl bg-white/10 backdrop-blur-sm hover:bg-white/20 hover:shadow-glow transition-all duration-300 hover:-translate-y-1">
               <img 
                 src={partner.logo} 
                 alt={partner.name}

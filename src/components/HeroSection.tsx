@@ -15,13 +15,17 @@ const HeroSection = () => {
         <div className="flex flex-col items-center text-center space-y-8">
           {/* Title */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight animate-fade-in">
-            <span className="text-foreground block">Build the Future of</span>
-            <span className="text-foreground block">Web3 Applications</span>
+            <div className="text-foreground">Build the Future of</div>
+            <div className="text-foreground">Web3 Applications</div>
           </h1>
           
           {/* Logo - centered between title and description */}
-          <div className="flex justify-center animate-scale-in">
-            <img src={heroImage} alt="Curaga Web3 Innovation" className="w-full max-w-xs sm:max-w-sm lg:max-w-md" />
+          <div className="relative flex justify-center animate-scale-in">
+            {/* Purple background behind logo */}
+            <div className="absolute inset-0 w-96 h-96 bg-curaga-purple/20 rounded-full blur-3xl opacity-30 animate-float" style={{
+              animationDelay: '1s'
+            }}></div>
+            <img src={heroImage} alt="Curaga Web3 Innovation" className="w-full max-w-xs sm:max-w-sm lg:max-w-md relative z-10" />
           </div>
           
           {/* Description and CTA */}

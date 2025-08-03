@@ -86,6 +86,21 @@ const DexWhiteLabel = () => {
     }
   ];
 
+  const managementOptions = [
+    {
+      icon: Code,
+      title: "Managed",
+      metric: "Handover",
+      description: "We deploy and maintain the tech, then hand over to your team while keeping it running"
+    },
+    {
+      icon: Users,
+      title: "Fully Managed",
+      metric: "Dedicated",
+      description: "We allocate a permanent resource exclusively to your project for ongoing management"
+    }
+  ];
+
   const businessBenefits = [
     {
       icon: Clock,
@@ -100,16 +115,10 @@ const DexWhiteLabel = () => {
       description: "Compared to building from scratch with same feature set"
     },
     {
-      icon: Code,
-      title: "Customizable",
-      metric: "100%",
-      description: "Full white-label customization including branding and features"
-    },
-    {
       icon: BarChart3,
       title: "Proven Results",
       metric: "$500M+",
-      description: "Total value locked across our deployed solutions"
+      description: "Total value locked across our managed solutions"
     }
   ];
 
@@ -161,9 +170,9 @@ const DexWhiteLabel = () => {
               in Just 2 Weeks
             </h1>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto font-light mb-8">
-              Curaga's enterprise-grade DEX infrastructure powers the next generation of decentralized exchanges. 
-              Get everything you need to compete with industry leaders - from advanced AMM technology to sophisticated 
-              DeFi features, all under your brand.
+              We manage and deliver enterprise-grade DEX infrastructure solutions for your brand. 
+              Choose between our managed handover service or fully managed dedicated resource model 
+              to launch and scale your decentralized exchange with industry-leading technology.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -181,8 +190,20 @@ const DexWhiteLabel = () => {
             </div>
           </div>
 
+          {/* Management Options */}
+          <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+            {managementOptions.map((option, index) => (
+              <Card key={index} className="p-8 text-center bg-card/80 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all duration-300">
+                <option.icon className="w-12 h-12 text-primary mx-auto mb-4" />
+                <div className="text-2xl font-bold text-primary mb-2">{option.metric}</div>
+                <div className="text-lg font-semibold text-foreground mb-3">{option.title}</div>
+                <div className="text-sm text-muted-foreground leading-relaxed">{option.description}</div>
+              </Card>
+            ))}
+          </div>
+
           {/* Stats */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto mb-16">
+          <div className="grid grid-cols-3 gap-8 max-w-4xl mx-auto mb-16">
             {businessBenefits.map((benefit, index) => (
               <Card key={index} className="p-6 text-center bg-card/80 backdrop-blur-sm border-border/50">
                 <benefit.icon className="w-8 h-8 text-primary mx-auto mb-3" />
@@ -203,7 +224,7 @@ const DexWhiteLabel = () => {
               Complete <span className="bg-gradient-primary bg-clip-text text-transparent">DeFi Infrastructure</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Every feature you need to launch a competitive DEX, powered by battle-tested technology
+              We manage and deliver every feature you need to launch a competitive DEX, powered by our battle-tested technology
             </p>
           </div>
 
@@ -233,7 +254,7 @@ const DexWhiteLabel = () => {
               <span className="bg-gradient-primary bg-clip-text text-transparent">Technical Excellence</span> by Design
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Enterprise-grade infrastructure that scales with your success
+              We manage enterprise-grade infrastructure that scales with your success
             </p>
           </div>
 
@@ -268,7 +289,7 @@ const DexWhiteLabel = () => {
               <span className="bg-gradient-primary bg-clip-text text-transparent">Streamlined</span> Integration Process
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              From concept to launch in just 2 weeks with our proven deployment process
+              We manage your deployment from concept to launch in just 2 weeks with our proven process
             </p>
           </div>
 
@@ -304,8 +325,8 @@ const DexWhiteLabel = () => {
                 Ready to Launch Your <span className="bg-gradient-primary bg-clip-text text-transparent">DEX Empire?</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
-                Join the ranks of successful DEX operators powered by Curaga's infrastructure. 
-                Get a custom quote and technical consultation to start your journey.
+                Join successful DEX operators who trust us to manage their infrastructure. 
+                Choose your management model and get a custom quote to start your journey.
               </p>
               
               <div className="grid md:grid-cols-3 gap-6 mb-8">

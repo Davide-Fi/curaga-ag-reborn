@@ -12,7 +12,7 @@ const HeroSection = () => {
     }}></div>
       
       <div className="container mx-auto max-w-7xl px-8 py-20 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between space-y-12 lg:space-y-0 lg:space-x-16">
+        <div className="flex flex-col lg:flex-row items-center justify-between space-y-12 lg:space-y-0 lg:space-x-16">
           {/* Text content - takes up more space on desktop */}
           <div className="flex-[2] space-y-8 animate-fade-in text-center lg:text-left order-2 lg:order-1">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">

@@ -16,6 +16,68 @@ interface ContactFormData {
   message: string;
 }
 
+// Rate limiting store (in production, use Redis or similar)
+const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
+
+// Input validation and sanitization
+function validateAndSanitizeInput(data: any): ContactFormData {
+  // Basic validation
+  if (!data.name || typeof data.name !== 'string' || data.name.trim().length === 0) {
+    throw new Error('Name is required');
+  }
+  if (!data.email || typeof data.email !== 'string' || !data.email.includes('@')) {
+    throw new Error('Valid email is required');
+  }
+  if (!data.message || typeof data.message !== 'string' || data.message.trim().length === 0) {
+    throw new Error('Message is required');
+  }
+
+  // Length limits
+  if (data.name.length > 100) throw new Error('Name too long');
+  if (data.email.length > 254) throw new Error('Email too long');
+  if (data.message.length > 2000) throw new Error('Message too long');
+  if (data.company && data.company.length > 100) throw new Error('Company name too long');
+  if (data.telegram && data.telegram.length > 50) throw new Error('Telegram handle too long');
+  if (data.xAccount && data.xAccount.length > 50) throw new Error('X account too long');
+
+  // Sanitize inputs (basic HTML entity encoding)
+  const sanitize = (str: string) => str.replace(/[<>&"']/g, (char) => {
+    const entities: Record<string, string> = { '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', "'": '&#x27;' };
+    return entities[char] || char;
+  });
+
+  return {
+    name: sanitize(data.name.trim()),
+    email: data.email.trim().toLowerCase(),
+    company: data.company ? sanitize(data.company.trim()) : undefined,
+    telegram: data.telegram ? sanitize(data.telegram.trim()) : undefined,
+    xAccount: data.xAccount ? sanitize(data.xAccount.trim()) : undefined,
+    message: sanitize(data.message.trim()),
+  };
+}
+
+// Rate limiting check
+function checkRateLimit(clientIP: string): boolean {
+  const now = Date.now();
+  const windowMs = 15 * 60 * 1000; // 15 minutes
+  const maxRequests = 5; // 5 requests per window
+
+  const key = clientIP;
+  const current = rateLimitStore.get(key);
+
+  if (!current || now > current.resetTime) {
+    rateLimitStore.set(key, { count: 1, resetTime: now + windowMs });
+    return true;
+  }
+
+  if (current.count >= maxRequests) {
+    return false;
+  }
+
+  current.count++;
+  return true;
+}
+
 const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
@@ -30,6 +92,16 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
+    // Rate limiting
+    const clientIP = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || 'unknown';
+    if (!checkRateLimit(clientIP)) {
+      console.log("Rate limit exceeded for IP:", clientIP);
+      return new Response(
+        JSON.stringify({ error: "Too many requests. Please try again later." }),
+        { status: 429, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
     const supabase = createClient(
       Deno.env.get('SUPABASE_URL')!,
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
@@ -37,8 +109,18 @@ const handler = async (req: Request): Promise<Response> => {
 
     const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
-    const formData: ContactFormData = await req.json();
-    console.log("Received contact form submission:", { name: formData.name, email: formData.email });
+    const rawData = await req.json();
+    const formData = validateAndSanitizeInput(rawData);
+    
+    // Secure logging - only log non-sensitive metadata
+    console.log("Contact form submission received:", { 
+      timestamp: new Date().toISOString(),
+      hasName: !!formData.name,
+      hasEmail: !!formData.email,
+      hasCompany: !!formData.company,
+      messageLength: formData.message.length,
+      clientIP: clientIP
+    });
 
     // Store form submission in database
     const { data: submission, error: dbError } = await supabase

@@ -17,6 +17,8 @@ const ContactForm = ({ trigger }: ContactFormProps) => {
     name: "",
     email: "",
     company: "",
+    telegram: "",
+    xAccount: "",
     message: ""
   });
   const { toast } = useToast();
@@ -42,7 +44,7 @@ const ContactForm = ({ trigger }: ContactFormProps) => {
     });
     
     // Reset form and close dialog
-    setFormData({ name: "", email: "", company: "", message: "" });
+    setFormData({ name: "", email: "", company: "", telegram: "", xAccount: "", message: "" });
     setIsOpen(false);
   };
 
@@ -106,6 +108,34 @@ const ContactForm = ({ trigger }: ContactFormProps) => {
               onChange={handleInputChange}
               placeholder="Your company name"
             />
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="telegram" className="text-sm font-medium">
+                Telegram Handle
+              </Label>
+              <Input
+                id="telegram"
+                name="telegram"
+                value={formData.telegram}
+                onChange={handleInputChange}
+                placeholder="@username"
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="xAccount" className="text-sm font-medium">
+                X Account
+              </Label>
+              <Input
+                id="xAccount"
+                name="xAccount"
+                value={formData.xAccount}
+                onChange={handleInputChange}
+                placeholder="@username"
+              />
+            </div>
           </div>
           
           <div className="space-y-2">

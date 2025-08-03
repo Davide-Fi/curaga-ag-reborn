@@ -37,19 +37,18 @@ const Header = () => {
             >
               Services
             </button>
-            <Link 
-              to="/dex-white-label"
-              className="relative inline-flex items-center px-4 py-2 rounded-lg bg-gradient-primary text-white font-medium hover:shadow-glow transition-all duration-300 hover:scale-105"
-            >
-              <span className="relative z-10">DEX White Label</span>
-              <div className="absolute inset-0 bg-gradient-primary rounded-lg opacity-80 animate-pulse"></div>
-            </Link>
             <button 
               onClick={() => scrollToSection('partners')}
               className="text-foreground hover:text-primary transition-colors duration-200"
             >
               Partners
             </button>
+            <Link 
+              to="/dex-white-label"
+              className="relative bg-gradient-primary bg-clip-text text-transparent font-semibold hover:scale-105 transition-all duration-300 after:content-[''] after:absolute after:inset-0 after:bg-gradient-primary after:opacity-10 after:rounded-lg after:blur-sm after:-z-10"
+            >
+              DEX White Label
+            </Link>
             <ContactForm
               trigger={
                 <Button className="bg-gradient-primary text-white px-6 py-2 rounded-xl hover:shadow-glow transition-all duration-300">

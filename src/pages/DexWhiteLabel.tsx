@@ -303,11 +303,11 @@ const DexWhiteLabel = () => {
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-3 text-center">{step.title}</h3>
                   <p className="text-sm text-muted-foreground text-center flex-grow mb-4">{step.description}</p>
-                  <div className="flex justify-center">
-                    <div className="text-xs text-primary font-medium text-center bg-primary/10 rounded-full px-3 py-1 w-fit">
-                      {step.duration}
-                    </div>
-                  </div>
+                                     <div className="flex justify-center">
+                     <div className="text-xs text-primary font-medium text-center bg-primary/10 rounded-full px-3 py-1 inline-block">
+                       {step.duration}
+                     </div>
+                   </div>
                 </Card>
               </div>
             ))}

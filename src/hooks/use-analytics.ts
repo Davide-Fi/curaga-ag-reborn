@@ -15,8 +15,8 @@ export const useAnalytics = () => {
     }
 
     // Google Analytics 4
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', event.action, {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', event.action, {
         event_category: event.category,
         event_label: event.label,
         value: event.value,

@@ -147,7 +147,7 @@ const ContactForm: React.FC<ContactFormProps> = React.memo(({ trigger }) => {
       </DialogContent>
     </Dialog>
   );
-};
+});
 
 ContactForm.displayName = 'ContactForm';
 

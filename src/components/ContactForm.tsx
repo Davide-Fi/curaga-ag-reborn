@@ -23,7 +23,7 @@ const ContactForm = ({ trigger }: ContactFormProps) => {
   });
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Simple validation
@@ -35,17 +35,39 @@ const ContactForm = ({ trigger }: ContactFormProps) => {
       return;
     }
 
-    // Here you would typically send the data to your backend
-    console.log("Form submitted:", formData);
-    
-    toast({
-      title: "Message sent successfully!",
-      description: "We'll get back to you within 24 hours."
-    });
-    
-    // Reset form and close dialog
-    setFormData({ name: "", email: "", company: "", telegram: "", xAccount: "", message: "" });
-    setIsOpen(false);
+    try {
+      const response = await fetch(`https://djuaphbzoitjqjtlxmxg.supabase.co/functions/v1/contact-form`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqdWFwaGJ6b2l0anFqdGx4bXhnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQyMjM4ODUsImV4cCI6MjA2OTc5OTg4NX0.h-owDFfnfENfLNq8mt8gpl5Eq0iJq0HdxDg4-QgUzoI`
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to submit form');
+      }
+
+      toast({
+        title: "Message sent successfully!",
+        description: "We'll get back to you within 24 hours."
+      });
+      
+      // Reset form and close dialog
+      setFormData({ name: "", email: "", company: "", telegram: "", xAccount: "", message: "" });
+      setIsOpen(false);
+
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Error sending message",
+        description: "Please try again or contact us directly.",
+        variant: "destructive"
+      });
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

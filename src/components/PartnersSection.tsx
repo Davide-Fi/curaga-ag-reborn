@@ -31,7 +31,11 @@ const PartnersSection = () => {
               <img 
                 src={partner.logo} 
                 alt={partner.name}
-                className="max-h-16 w-auto opacity-90 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110 filter-none"
+                className={`w-auto opacity-90 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110 filter-none ${
+                  partner.name === "Monad" || partner.name === "Mantle" 
+                    ? "max-h-20" 
+                    : "max-h-16"
+                }`}
               />
             </div>
           ))}

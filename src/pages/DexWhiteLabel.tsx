@@ -301,11 +301,12 @@ const DexWhiteLabel = () => {
                     <span className="text-white font-bold text-lg">{step.step}</span>
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-3 text-center">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4 text-center flex-grow">{step.description}</p>
-                  <div className="text-xs text-primary font-medium text-center bg-primary/10 rounded-full px-3 py-1 mt-auto">
-                    {step.duration}
-                  </div>
+                  <p className="text-sm text-muted-foreground text-center flex-grow">{step.description}</p>
                 </Card>
+                
+                <div className="text-xs text-primary font-medium text-center bg-primary/10 rounded-full px-3 py-1 mt-4 mx-auto w-fit">
+                  {step.duration}
+                </div>
                 
                 {index < integrationSteps.length - 1 && (
                   <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 -right-4 w-8 h-0.5 bg-gradient-primary z-10"></div>

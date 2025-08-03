@@ -4,80 +4,23 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast";
-import { MessageCircle, Send, X } from "lucide-react";
+import { MessageCircle, Send, X, Loader2 } from "lucide-react";
+import { useContactForm } from "@/hooks/use-contact-form";
 
 interface ContactFormProps {
   trigger: React.ReactNode;
 }
 
-const ContactForm = ({ trigger }: ContactFormProps) => {
+const ContactForm: React.FC<ContactFormProps> = React.memo(({ trigger }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    telegram: "",
-    xAccount: "",
-    message: ""
-  });
-  const { toast } = useToast();
+  const { formData, isLoading, handleInputChange, handleSubmit, resetForm } = useContactForm();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submission started', formData);
-    
-    // Simple validation
-    if (!formData.name || !formData.email || !formData.message) {
-      toast({
-        title: "Please fill in all required fields",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    try {
-      console.log('Making API request to contact form');
-      const response = await fetch(`https://djuaphbzoitjqjtlxmxg.supabase.co/functions/v1/contact-form`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqdWFwaGJ6b2l0anFqdGx4bXhnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQyMjM4ODUsImV4cCI6MjA2OTc5OTg4NX0.h-owDFfnfENfLNq8mt8gpl5Eq0iJq0HdxDg4-QgUzoI`
-        },
-        body: JSON.stringify(formData)
-      });
-
-      const result = await response.json();
-      console.log('API Response:', { status: response.status, result });
-
-      if (!response.ok) {
-        throw new Error(result.error || 'Failed to submit form');
-      }
-
-      toast({
-        title: "Message sent successfully!",
-        description: "We'll get back to you within 24 hours."
-      });
-      
-      // Reset form and close dialog
-      setFormData({ name: "", email: "", company: "", telegram: "", xAccount: "", message: "" });
+  const onSubmit = async (e: React.FormEvent) => {
+    await handleSubmit(e);
+    if (!isLoading) {
       setIsOpen(false);
-
-    } catch (error) {
-      console.error('Form submission error:', error);
-      toast({
-        title: "Error sending message",
-        description: "Please try again or contact us directly.",
-        variant: "destructive"
-      });
+      resetForm();
     }
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
   };
 
   return (
@@ -92,7 +35,7 @@ const ContactForm = ({ trigger }: ContactFormProps) => {
             Get in Touch
           </DialogTitle>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-6 mt-6">
+        <form onSubmit={onSubmit} className="space-y-6 mt-6">
           <div className="space-y-2">
             <Label htmlFor="name" className="text-sm font-medium">
               Name *
@@ -181,14 +124,20 @@ const ContactForm = ({ trigger }: ContactFormProps) => {
           <div className="flex gap-3 pt-4">
             <Button
               type="submit"
+              disabled={isLoading}
               className="flex-1 bg-gradient-primary hover:shadow-glow transition-all duration-300"
             >
-              <Send className="w-4 h-4 mr-2" />
-              Send Message
+              {isLoading ? (
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+              ) : (
+                <Send className="w-4 h-4 mr-2" />
+              )}
+              {isLoading ? 'Sending...' : 'Send Message'}
             </Button>
             <Button
               type="button"
               variant="outline"
+              disabled={isLoading}
               onClick={() => setIsOpen(false)}
             >
               <X className="w-4 h-4" />
@@ -199,5 +148,7 @@ const ContactForm = ({ trigger }: ContactFormProps) => {
     </Dialog>
   );
 };
+
+ContactForm.displayName = 'ContactForm';
 
 export default ContactForm;

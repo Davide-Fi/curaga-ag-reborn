@@ -1,9 +1,20 @@
+import React from 'react';
 import ContactForm from "./ContactForm";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
-const Header = () => {
+const Header: React.FC = React.memo(() => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const scrollToSection = (sectionId: string) => {
+    // If we're not on the homepage, navigate there first
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: sectionId } });
+      return;
+    }
+
+    // If we're already on the homepage, scroll to the section
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -62,5 +73,7 @@ const Header = () => {
     </header>
   );
 };
+
+Header.displayName = 'Header';
 
 export default Header;

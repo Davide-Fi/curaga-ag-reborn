@@ -1,21 +1,18 @@
 import heroImage from "@/assets/hero-image.jpg";
 import { ArrowRight, Code, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
 const HeroSection = () => {
-  return (
-    <section className="relative bg-gradient-to-br from-background via-background to-secondary/20 overflow-hidden min-h-screen flex items-center">
+  return <section className="relative bg-gradient-to-br from-background via-background to-secondary/20 overflow-hidden min-h-screen flex items-center">
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-20 right-20 w-72 h-72 bg-gradient-primary rounded-full blur-3xl opacity-20 animate-float"></div>
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-curaga-purple/30 rounded-full blur-3xl opacity-20 animate-float" style={{animationDelay: '2s'}}></div>
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-curaga-purple/30 rounded-full blur-3xl opacity-20 animate-float" style={{
+      animationDelay: '2s'
+    }}></div>
       
       <div className="container mx-auto max-w-7xl px-8 py-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-8 animate-fade-in">
-            <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-full px-6 py-3 text-primary font-medium">
-              <Zap className="w-4 h-4" />
-              Web3 Innovation Leaders
-            </div>
+            
             
             <h1 className="text-6xl lg:text-7xl font-bold leading-tight">
               <span className="bg-gradient-primary bg-clip-text text-transparent">Curaga</span>
@@ -63,17 +60,11 @@ const HeroSection = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-primary rounded-3xl blur-3xl opacity-30 animate-float"></div>
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-curaga-purple/20 rounded-3xl blur-2xl"></div>
-              <img 
-                src={heroImage} 
-                alt="Curaga Web3 Innovation" 
-                className="relative w-full max-w-lg rounded-3xl shadow-2xl animate-scale-in"
-              />
+              <img src={heroImage} alt="Curaga Web3 Innovation" className="relative w-full max-w-lg rounded-3xl shadow-2xl animate-scale-in" />
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;

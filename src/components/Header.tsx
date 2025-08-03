@@ -10,10 +10,10 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-background/95 backdrop-blur-sm sticky top-0 z-50">
-      <div className="container mx-auto max-w-6xl px-8">
+    <header className="bg-background/95 backdrop-blur-sm sticky top-0 z-50 border-b border-border/10">
+      <div className="container mx-auto max-w-6xl px-8 py-4">
         <div className="flex items-center justify-between">
-          <img src="/lovable-uploads/561794b8-8c4c-4f17-b4dd-857045eecab2.png" alt="Curaga" className="h-20" />
+          <img src="/lovable-uploads/561794b8-8c4c-4f17-b4dd-857045eecab2.png" alt="Curaga" className="h-16" />
           
           <nav className="hidden md:flex items-center space-x-8">
             <button 

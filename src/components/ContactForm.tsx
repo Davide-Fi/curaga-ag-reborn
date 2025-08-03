@@ -25,6 +25,7 @@ const ContactForm = ({ trigger }: ContactFormProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('Form submission started', formData);
     
     // Simple validation
     if (!formData.name || !formData.email || !formData.message) {
@@ -36,6 +37,7 @@ const ContactForm = ({ trigger }: ContactFormProps) => {
     }
 
     try {
+      console.log('Making API request to contact form');
       const response = await fetch(`https://djuaphbzoitjqjtlxmxg.supabase.co/functions/v1/contact-form`, {
         method: 'POST',
         headers: {
@@ -46,6 +48,7 @@ const ContactForm = ({ trigger }: ContactFormProps) => {
       });
 
       const result = await response.json();
+      console.log('API Response:', { status: response.status, result });
 
       if (!response.ok) {
         throw new Error(result.error || 'Failed to submit form');

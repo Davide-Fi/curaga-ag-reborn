@@ -54,7 +54,7 @@ const DexAsServiceSection = () => {
         {/* Header */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-full px-6 py-3 text-primary font-medium mb-6">
-            DEX-as-a-Service
+            DEX White Label
           </div>
           <h2 className="text-5xl font-bold text-foreground mb-6 leading-tight">
             Launch Your <span className="bg-gradient-primary bg-clip-text text-transparent">DEX in Weeks</span>, Not Months
@@ -157,8 +157,8 @@ const DexAsServiceSection = () => {
               Get a custom quote and technical consultation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="group">
-                Schedule Technical Demo
+              <Button size="lg" className="group" onClick={() => window.open('/dex-white-label', '_blank')}>
+                Learn More
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button variant="outline" size="lg">

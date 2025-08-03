@@ -1,4 +1,4 @@
-import heroImage from "@/assets/hero-image.jpg";
+import heroImage from "@/assets/hero-image-transparent.png";
 import { ArrowRight, Code, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 const HeroSection = () => {

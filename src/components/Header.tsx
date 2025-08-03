@@ -13,7 +13,7 @@ const Header = () => {
     <header className="bg-background/95 backdrop-blur-sm sticky top-0 z-50">
       <div className="container mx-auto max-w-6xl px-8">
         <div className="flex items-center justify-between">
-          <img src="/lovable-uploads/05d099ea-23e4-4638-b786-16093f5b6026.png" alt="Curaga" className="h-20" />
+          <img src="/lovable-uploads/561794b8-8c4c-4f17-b4dd-857045eecab2.png" alt="Curaga" className="h-20" />
           
           <nav className="hidden md:flex items-center space-x-8">
             <button 

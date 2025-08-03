@@ -296,13 +296,13 @@ const DexWhiteLabel = () => {
           <div className="grid lg:grid-cols-4 gap-8">
             {integrationSteps.map((step, index) => (
               <div key={index} className="relative">
-                <Card className="p-6 bg-card/50 backdrop-blur-sm border-border/30 h-full">
+                <Card className="p-6 bg-card/50 backdrop-blur-sm border-border/30 h-full flex flex-col">
                   <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mb-4 mx-auto">
                     <span className="text-white font-bold text-lg">{step.step}</span>
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-3 text-center">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4 text-center">{step.description}</p>
-                  <div className="text-xs text-primary font-medium text-center bg-primary/10 rounded-full px-3 py-1">
+                  <p className="text-sm text-muted-foreground mb-4 text-center flex-grow">{step.description}</p>
+                  <div className="text-xs text-primary font-medium text-center bg-primary/10 rounded-full px-3 py-1 mt-auto">
                     {step.duration}
                   </div>
                 </Card>

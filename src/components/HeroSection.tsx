@@ -12,19 +12,25 @@ const HeroSection = () => {
     }}></div>
       
       <div className="container mx-auto max-w-7xl px-8 py-20 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between space-y-12 lg:space-y-0 lg:space-x-16">
-          {/* Text content - takes up more space on desktop */}
-          <div className="flex-[2] space-y-8 animate-fade-in text-center lg:text-left order-2 lg:order-1">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">
-              <span className="text-foreground block">Build the Future of</span>
-              <span className="text-foreground block">Web3 Applications</span>
-            </h1>
-            
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed font-light max-w-3xl lg:mx-0 mx-auto">
+        <div className="flex flex-col items-center text-center space-y-8">
+          {/* Title */}
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight animate-fade-in">
+            <span className="text-foreground block">Build the Future of</span>
+            <span className="text-foreground block">Web3 Applications</span>
+          </h1>
+          
+          {/* Logo - centered between title and description */}
+          <div className="flex justify-center animate-scale-in">
+            <img src={heroImage} alt="Curaga Web3 Innovation" className="w-full max-w-xs sm:max-w-sm lg:max-w-md" />
+          </div>
+          
+          {/* Description and CTA */}
+          <div className="space-y-8 animate-fade-in max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed font-light">
               Experienced R&D consultancy specializing in cutting-edge blockchain solutions, smart contract engineering, and decentralized applications that drive real innovation.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 pt-6 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 pt-6 justify-center">
               <Button size="lg" className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 rounded-2xl group">
                 Start Your Project
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
@@ -35,25 +41,20 @@ const HeroSection = () => {
               </Button>
             </div>
             
-            <div className="flex flex-wrap items-center gap-6 sm:gap-8 pt-8 justify-center lg:justify-start">
-              <div className="text-center lg:text-left">
+            <div className="flex flex-wrap items-center gap-6 sm:gap-8 pt-8 justify-center">
+              <div className="text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-primary">50+</div>
                 <div className="text-xs sm:text-sm text-muted-foreground">Projects Delivered</div>
               </div>
-              <div className="text-center lg:text-left">
+              <div className="text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-primary">$100M+</div>
                 <div className="text-xs sm:text-sm text-muted-foreground">Value Created</div>
               </div>
-              <div className="text-center lg:text-left">
+              <div className="text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-primary">24/7</div>
                 <div className="text-xs sm:text-sm text-muted-foreground">Support</div>
               </div>
             </div>
-          </div>
-          
-          {/* Logo - smaller and positioned to complement text */}
-          <div className="flex justify-center lg:justify-end order-1 lg:order-2 flex-[1]">
-            <img src={heroImage} alt="Curaga Web3 Innovation" className="w-full max-w-xs sm:max-w-sm lg:max-w-md animate-scale-in" />
           </div>
         </div>
       </div>

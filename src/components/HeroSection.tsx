@@ -60,7 +60,7 @@ const HeroSection = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-primary rounded-3xl blur-3xl opacity-30 animate-float"></div>
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-curaga-purple/20 rounded-3xl blur-2xl"></div>
-              <img src={heroImage} alt="Curaga Web3 Innovation" className="relative w-full max-w-lg rounded-3xl shadow-2xl animate-scale-in" />
+              <img src={heroImage} alt="Curaga Web3 Innovation" className="relative w-full max-w-lg animate-scale-in" />
             </div>
           </div>
         </div>

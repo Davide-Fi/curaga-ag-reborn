@@ -2,6 +2,7 @@ import { ArrowRight, Zap, TrendingUp, Target, Repeat, BookOpen, PieChart, Shield
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import ContactForm from "@/components/ContactForm";
+import Header from "@/components/Header";
 
 const DexWhiteLabel = () => {
 
@@ -141,6 +142,7 @@ const DexWhiteLabel = () => {
 
   return (
     <div className="min-h-screen">
+      <Header />
       {/* Hero Section */}
       <section className="bg-gradient-subtle relative pt-24 pb-32 overflow-hidden">
         <div className="absolute inset-0 opacity-20">

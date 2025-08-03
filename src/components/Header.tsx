@@ -1,5 +1,6 @@
 import ContactForm from "./ContactForm";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const scrollToSection = (sectionId: string) => {
@@ -13,7 +14,9 @@ const Header = () => {
     <header className="bg-background/95 backdrop-blur-sm sticky top-0 z-50 border-b border-border/10">
       <div className="container mx-auto max-w-6xl px-8 py-4">
         <div className="flex items-center justify-between">
-          <img src="/lovable-uploads/561794b8-8c4c-4f17-b4dd-857045eecab2.png" alt="Curaga" className="h-16" />
+          <Link to="/">
+            <img src="/lovable-uploads/561794b8-8c4c-4f17-b4dd-857045eecab2.png" alt="Curaga" className="h-16" />
+          </Link>
           
           <nav className="flex items-center space-x-4 md:space-x-8 text-sm md:text-base">
             <button 
@@ -34,6 +37,13 @@ const Header = () => {
             >
               Services
             </button>
+            <Link 
+              to="/dex-white-label"
+              className="relative inline-flex items-center px-4 py-2 rounded-lg bg-gradient-primary text-white font-medium hover:shadow-glow transition-all duration-300 hover:scale-105"
+            >
+              <span className="relative z-10">DEX White Label</span>
+              <div className="absolute inset-0 bg-gradient-primary rounded-lg opacity-80 animate-pulse"></div>
+            </Link>
             <button 
               onClick={() => scrollToSection('partners')}
               className="text-foreground hover:text-primary transition-colors duration-200"

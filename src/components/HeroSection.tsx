@@ -12,25 +12,18 @@ const HeroSection = () => {
     }}></div>
       
       <div className="container mx-auto max-w-7xl px-8 py-20 relative z-10">
-        <div className="flex flex-col items-center space-y-12">
-          <div className="flex justify-center">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-primary rounded-3xl blur-3xl opacity-30 animate-float"></div>
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-curaga-purple/20 rounded-3xl blur-2xl"></div>
-              <img src={heroImage} alt="Curaga Web3 Innovation" className="relative w-full max-w-md animate-scale-in" />
-            </div>
-          </div>
-          
-          <div className="space-y-8 animate-fade-in text-center">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between space-y-12 lg:space-y-0 lg:space-x-12">
+          {/* Text content - left side on desktop, top on mobile */}
+          <div className="flex-1 space-y-8 animate-fade-in text-center lg:text-left order-2 lg:order-1">
             <h1 className="text-6xl lg:text-7xl font-bold leading-tight">
               <span className="text-foreground">Build the Future of</span>
               <br />
               <span className="text-foreground">Web3 Applications</span>
             </h1>
             
-            <p className="text-xl text-muted-foreground leading-relaxed font-light max-w-2xl mx-auto">Experienced R&D consultancy specializing in cutting-edge blockchain solutions, smart contract engineering, and decentralized applications that drive real innovation.</p>
+            <p className="text-xl text-muted-foreground leading-relaxed font-light max-w-2xl lg:mx-0 mx-auto">Experienced R&D consultancy specializing in cutting-edge blockchain solutions, smart contract engineering, and decentralized applications that drive real innovation.</p>
             
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
               <Button size="lg" className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 rounded-2xl group">
                 Start Your Project
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
@@ -41,20 +34,25 @@ const HeroSection = () => {
               </Button>
             </div>
             
-            <div className="flex items-center gap-8 pt-8 justify-center">
-              <div className="text-center">
+            <div className="flex items-center gap-8 pt-8 justify-center lg:justify-start">
+              <div className="text-center lg:text-left">
                 <div className="text-3xl font-bold text-primary">50+</div>
                 <div className="text-sm text-muted-foreground">Projects Delivered</div>
               </div>
-              <div className="text-center">
+              <div className="text-center lg:text-left">
                 <div className="text-3xl font-bold text-primary">$100M+</div>
                 <div className="text-sm text-muted-foreground">Value Created</div>
               </div>
-              <div className="text-center">
+              <div className="text-center lg:text-left">
                 <div className="text-3xl font-bold text-primary">24/7</div>
                 <div className="text-sm text-muted-foreground">Support</div>
               </div>
             </div>
+          </div>
+          
+          {/* Logo - top on mobile, right side on desktop */}
+          <div className="flex justify-center lg:justify-end order-1 lg:order-2">
+            <img src={heroImage} alt="Curaga Web3 Innovation" className="w-full max-w-md lg:max-w-lg animate-scale-in" />
           </div>
         </div>
       </div>

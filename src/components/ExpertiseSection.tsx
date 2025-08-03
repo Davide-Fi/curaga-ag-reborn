@@ -2,7 +2,7 @@ import { Code2, Database, Coins, Globe } from "lucide-react";
 
 const ExpertiseSection = () => {
   return (
-    <section className="bg-gradient-primary text-primary-foreground relative overflow-hidden py-32">
+    <section id="expertise" className="bg-gradient-primary text-primary-foreground relative overflow-hidden py-32">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/95 to-curaga-purple-dark/95"></div>
       <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
       

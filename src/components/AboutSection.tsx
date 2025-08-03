@@ -25,7 +25,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="bg-background relative py-32">
+    <section id="about" className="bg-background relative py-32">
       <div className="container mx-auto max-w-7xl px-8">
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-full px-6 py-3 text-primary font-medium mb-6">

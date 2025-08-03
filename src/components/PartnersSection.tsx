@@ -14,7 +14,7 @@ const PartnersSection = () => {
   ];
 
   return (
-    <section className="bg-gradient-primary text-primary-foreground relative overflow-hidden py-32">
+    <section id="partners" className="bg-gradient-primary text-primary-foreground relative overflow-hidden py-32">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/95 to-curaga-purple-dark/95"></div>
       <div className="container mx-auto max-w-6xl px-8 relative z-10">
         <div className="text-center mb-16">

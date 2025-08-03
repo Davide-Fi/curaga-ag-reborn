@@ -1,3 +1,6 @@
+import ContactForm from "./ContactForm";
+import { Button } from "@/components/ui/button";
+
 const Header = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -37,12 +40,13 @@ const Header = () => {
             >
               Partners
             </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="bg-gradient-primary text-white px-6 py-2 rounded-xl hover:shadow-glow transition-all duration-300"
-            >
-              Contact
-            </button>
+            <ContactForm
+              trigger={
+                <Button className="bg-gradient-primary text-white px-6 py-2 rounded-xl hover:shadow-glow transition-all duration-300">
+                  Get in Touch
+                </Button>
+              }
+            />
           </nav>
         </div>
       </div>

@@ -18,7 +18,7 @@ const HeroSection = () => {
             {/* Title */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">
               <div className="text-foreground">Build the Future of</div>
-              <div className="text-foreground">Web3 Applications</div>
+              <div className="text-foreground whitespace-nowrap">Web3 Applications</div>
             </h1>
             
             {/* Description and CTA */}
@@ -40,11 +40,11 @@ const HeroSection = () => {
               
               <div className="flex flex-wrap items-center gap-6 sm:gap-8 pt-8 justify-center lg:justify-start">
                 <div className="text-center lg:text-left">
-                  <div className="text-2xl sm:text-3xl font-bold text-primary">50+</div>
-                  <div className="text-xs sm:text-sm text-muted-foreground">Projects Delivered</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-primary">10+</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground">Protocols Built</div>
                 </div>
                 <div className="text-center lg:text-left">
-                  <div className="text-2xl sm:text-3xl font-bold text-primary">$100M+</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-primary">$5B+</div>
                   <div className="text-xs sm:text-sm text-muted-foreground">Value Created</div>
                 </div>
                 <div className="text-center lg:text-left">

@@ -42,17 +42,11 @@ const Header: React.FC = React.memo(() => {
             >
               Services
             </button>
-            <button 
-              onClick={() => scrollToSection('partners')}
-              className="text-foreground hover:text-primary transition-colors duration-200"
-            >
-              Partners
-            </button>
             <Link 
               to="/dex-white-label"
               className="relative bg-gradient-primary bg-clip-text text-transparent font-semibold hover:scale-105 transition-all duration-300 after:content-[''] after:absolute after:inset-0 after:bg-gradient-primary after:opacity-10 after:rounded-lg after:blur-sm after:-z-10"
             >
-              Dex as a Service
+              Dex Solutions
             </Link>
             <ContactForm
               trigger={

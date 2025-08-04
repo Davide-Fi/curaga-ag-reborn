@@ -29,10 +29,10 @@ const Header: React.FC = React.memo(() => {
             <img src="/lovable-uploads/561794b8-8c4c-4f17-b4dd-857045eecab2.png" alt="Curaga" className="h-16" />
           </Link>
           
-          <nav className="flex items-center space-x-4 md:space-x-8 text-sm md:text-base">
+          <nav className="flex items-center justify-center space-x-4 md:space-x-8 text-sm md:text-base">
             <button 
               onClick={() => scrollToSection('expertise')}
-              className="text-foreground hover:text-primary transition-colors duration-200"
+              className="hidden md:block text-foreground hover:text-primary transition-colors duration-200"
             >
               Expertise
             </button>
@@ -46,11 +46,11 @@ const Header: React.FC = React.memo(() => {
               to="/dex-white-label"
               className="relative bg-gradient-primary bg-clip-text text-transparent font-semibold hover:scale-105 transition-all duration-300 after:content-[''] after:absolute after:inset-0 after:bg-gradient-primary after:opacity-10 after:rounded-lg after:blur-sm after:-z-10"
             >
-              Dex Solutions
+              White-label Dex
             </Link>
             <ContactForm
               trigger={
-                <Button className="bg-gradient-primary text-white px-6 py-2 rounded-xl hover:shadow-glow transition-all duration-300">
+                <Button className="bg-gradient-primary text-white px-3 py-2 md:px-6 rounded-xl hover:shadow-glow transition-all duration-300">
                   Get in Touch
                 </Button>
               }

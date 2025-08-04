@@ -1,9 +1,22 @@
 import { ArrowRight, Code } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const heroImage = "/lovable-uploads/561794b8-8c4c-4f17-b4dd-857045eecab2.png";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
+  const scrollToExpertise = () => {
+    const element = document.getElementById('expertise');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleStartProject = () => {
+    navigate('/dex-white-label');
+  };
   return <section className="relative bg-gradient-to-br from-background via-background to-secondary/20 overflow-hidden min-h-screen flex items-center">
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-20 right-20 w-72 h-72 bg-gradient-primary rounded-full blur-3xl opacity-20 animate-float"></div>
@@ -28,11 +41,20 @@ const HeroSection = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 pt-6 justify-center lg:justify-start">
-                <Button size="lg" className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 rounded-2xl group">
+                <Button 
+                  size="lg" 
+                  className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 rounded-2xl group"
+                  onClick={handleStartProject}
+                >
                   Start Your Project
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
-                <Button variant="outline" size="lg" className="border-primary/30 hover:bg-primary/5 text-lg px-8 py-6 rounded-2xl">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-primary/30 hover:bg-primary/5 text-lg px-8 py-6 rounded-2xl"
+                  onClick={scrollToExpertise}
+                >
                   <Code className="w-5 h-5 mr-2" />
                   View Our Work
                 </Button>

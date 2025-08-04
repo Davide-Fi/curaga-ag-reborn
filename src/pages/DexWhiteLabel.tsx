@@ -2,6 +2,7 @@ import { ArrowRight, Zap, TrendingUp, Target, Repeat, BookOpen, PieChart, Shield
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import ContactForm from "@/components/ContactForm";
+import ScheduleCallForm from "@/components/ScheduleCallForm";
 import Header from "@/components/Header";
 
 const DexWhiteLabel = () => {
@@ -362,9 +363,13 @@ const DexWhiteLabel = () => {
                     </Button>
                   }
                 />
-                <Button variant="outline" size="lg">
-                  Schedule Technical Demo
-                </Button>
+                <ScheduleCallForm 
+                  trigger={
+                    <Button variant="outline" size="lg">
+                      Schedule Technical Demo
+                    </Button>
+                  }
+                />
               </div>
             </div>
           </Card>

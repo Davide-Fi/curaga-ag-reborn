@@ -10,6 +10,7 @@ import PartnersSection from "@/components/PartnersSection";
 import CTASection from "@/components/CTASection";
 
 const Index = () => {
+  console.log('Index page rendering...');
   const location = useLocation();
 
   useEffect(() => {

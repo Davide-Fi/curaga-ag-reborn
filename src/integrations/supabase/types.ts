@@ -50,6 +50,42 @@ export type Database = {
         }
         Relationships: []
       }
+      schedule_submissions: {
+        Row: {
+          calendar_scheduler: string
+          company: string
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          status: string | null
+          telegram: string
+        }
+        Insert: {
+          calendar_scheduler: string
+          company: string
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          status?: string | null
+          telegram: string
+        }
+        Update: {
+          calendar_scheduler?: string
+          company?: string
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          status?: string | null
+          telegram?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

@@ -1,6 +1,7 @@
 import { ArrowRight, MessageCircle, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ContactForm from "./ContactForm";
+import ScheduleCallForm from "./ScheduleCallForm";
 
 const CTASection = () => {
   return (
@@ -36,10 +37,14 @@ const CTASection = () => {
                 </Button>
               }
             />
-            <Button variant="outline" size="lg" className="border-primary/30 hover:bg-primary/5 text-lg px-10 py-6 rounded-2xl">
-              <Calendar className="w-5 h-5 mr-2" />
-              Schedule Strategy Call
-            </Button>
+            <ScheduleCallForm
+              trigger={
+                <Button variant="outline" size="lg" className="border-primary/30 hover:bg-primary/5 text-lg px-10 py-6 rounded-2xl">
+                  <Calendar className="w-5 h-5 mr-2" />
+                  Schedule Strategy Call
+                </Button>
+              }
+            />
           </div>
           
           <div className="pt-12 border-t border-border/30 mt-16">

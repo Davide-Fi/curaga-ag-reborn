@@ -11,14 +11,14 @@ const HeroSection = () => {
       animationDelay: '2s'
     }}></div>
       
-      <div className="container mx-auto max-w-7xl px-8 py-20 relative z-10">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between space-y-12 lg:space-y-0 lg:space-x-16">
           {/* Text content - left side */}
           <div className="flex-[2] space-y-8 animate-fade-in text-center lg:text-left order-2 lg:order-1">
             {/* Title */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">
               <div className="text-foreground">Build the Future of</div>
-              <div className="text-foreground whitespace-nowrap">Web3 Applications</div>
+              <div className="text-foreground">Web3 Applications</div>
             </h1>
             
             {/* Description and CTA */}

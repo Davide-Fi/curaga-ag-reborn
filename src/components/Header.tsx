@@ -72,7 +72,7 @@ const Header: React.FC = React.memo(() => {
       </div>
     </header>
   );
-};
+});
 
 Header.displayName = 'Header';
 

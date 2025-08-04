@@ -31,12 +31,6 @@ const Header: React.FC = React.memo(() => {
           
           <nav className="flex items-center space-x-4 md:space-x-8 text-sm md:text-base">
             <button 
-              onClick={() => scrollToSection('about')}
-              className="text-foreground hover:text-primary transition-colors duration-200"
-            >
-              About
-            </button>
-            <button 
               onClick={() => scrollToSection('expertise')}
               className="text-foreground hover:text-primary transition-colors duration-200"
             >
@@ -58,7 +52,7 @@ const Header: React.FC = React.memo(() => {
               to="/dex-white-label"
               className="relative bg-gradient-primary bg-clip-text text-transparent font-semibold hover:scale-105 transition-all duration-300 after:content-[''] after:absolute after:inset-0 after:bg-gradient-primary after:opacity-10 after:rounded-lg after:blur-sm after:-z-10"
             >
-              DEX White Label
+              Dex as a Service
             </Link>
             <ContactForm
               trigger={

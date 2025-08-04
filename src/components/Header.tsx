@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ContactForm from "./ContactForm";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate, useLocation } from "react-router-dom";
@@ -6,6 +6,17 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 const Header: React.FC = React.memo(() => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [showLogo, setShowLogo] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setShowLogo(scrollPosition > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     // If we're not on the homepage, navigate there first
@@ -26,7 +37,11 @@ const Header: React.FC = React.memo(() => {
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           <Link to="/">
-            <img src="/lovable-uploads/561794b8-8c4c-4f17-b4dd-857045eecab2.png" alt="Curaga" className="h-16" />
+            <img 
+              src="/lovable-uploads/561794b8-8c4c-4f17-b4dd-857045eecab2.png" 
+              alt="Curaga" 
+              className={`h-16 transition-opacity duration-300 ${showLogo ? 'opacity-100' : 'opacity-0'}`} 
+            />
           </Link>
           
           <nav className="flex items-center justify-center space-x-4 md:space-x-8 text-sm md:text-base">
